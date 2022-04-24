@@ -1,0 +1,22 @@
+IF @METODO = 'LISTAR_UNIDADE_ETIQUETA' BEGIN
+				
+		SELECT		A.NOME_COMPLETO											                        AS UNIDADE_RAZAOSOCIAL
+						   ,A.CNPJ													                          AS UNIDADE_CNPJ
+						   ,A.LOGRADOURO COLLATE SQL_Latin1_General_CP1251_CS_AS	    AS UNIDADE_LOGRADOURO
+						   ,A.CEP													                            AS UNIDADE_CEP
+						   ,A.BAIRRO												                          AS UNIDADE_BAIRRO
+						   ,A.CIDADE												                          AS UNIDADE_CIDADE
+						   ,A.UF													                            AS UNIDADE_UF
+						   ,A.EMAIL													                          AS UNIDADE_EMAIL
+						   ,A.FONE													                          AS UNIDADE_FONE
+		FROM	SYSTEM_UNEG A WITH (NOLOCK)
+		WHERE	A.ID_UNIDADE	= @ID_UNIDADE
+		AND     A.DELETADO		= 'N'
+
+END
+
+//Este comando tem a intenção de listar os dados de endereço da unidade de negócio de um determinado cliente
+
+//A coluna ,A.LOGRADOURO COLLATE SQL_Latin1_General_CP1251_CS_AS	AS  UNIDADE_LOGRADOURO 
+//foi utilizado o Collate. A função do mesmo é traduzir o retorno para o latim, pois estava causando problema nas acentuações;
+
