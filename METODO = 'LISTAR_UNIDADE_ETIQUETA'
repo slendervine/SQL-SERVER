@@ -1,3 +1,5 @@
+
+
 IF @METODO = 'LISTAR_UNIDADE_ETIQUETA' BEGIN
 				
 		SELECT		A.NOME_COMPLETO											                        AS UNIDADE_RAZAOSOCIAL
@@ -15,5 +17,8 @@ IF @METODO = 'LISTAR_UNIDADE_ETIQUETA' BEGIN
 
 END
 
-
-
+-------------------------------------------------------------------------------------------------------------
+---  Este comando tem a intenção de listar os dados de endereço da unidade de negócio de um determinado cliente
+---  A coluna ,A.LOGRADOURO COLLATE SQL_Latin1_General_CP1251_CS_AS	AS  UNIDADE_LOGRADOURO 
+---  foi utilizado o Collate. A função do mesmo é traduzir o retorno para o latim, pois estava causando problema nas acentuações;
+---------------------------------------------------------------------------------------------------------------------------------
